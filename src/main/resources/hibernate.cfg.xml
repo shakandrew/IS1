@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:sqlite://$MODULE_DIR$/src/main/resources/DB/fitappdb.sqlite</property>
+    <property name="connection.driver_class">org.sqlite.JDBC</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+      <mapping class="domain.Achievement"/>
+      <mapping class="domain.Exercise"/>
+      <mapping class="domain.Language"/>
+      <mapping class="domain.Nutrition"/>
+      <mapping class="domain.Profile"/>
+      <mapping class="domain.Sex"/>
+      <mapping class="domain.Unit"/>
+      <mapping class="domain.UserAchievement"/>
+      <mapping class="domain.UserExercise"/>
+      <mapping class="domain.User"/>
+
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!--<property name="hbm2ddl.auto">update</property>-->
+  </session-factory>
+</hibernate-configuration>
