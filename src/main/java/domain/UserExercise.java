@@ -102,4 +102,14 @@ public class UserExercise {
     public void setExercisesByExerciseId(Exercise exercisesByExerciseId) {
         this.exercisesByExerciseId = exercisesByExerciseId;
     }
+
+    public void fillData(User user, Exercise exercise, long unixtimeDate,
+                         long setNum, long exerciseInSetNum, boolean status) {
+        this.setUsersByUserId(user);
+        this.setExercisesByExerciseId(exercise);
+        this.setUnixtimeDate(unixtimeDate);
+        this.setSetNum(setNum);
+        this.setExerciseInSetNum(exerciseInSetNum);
+        this.setStatus(status);
+    }
 }

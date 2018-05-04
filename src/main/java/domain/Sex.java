@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Sex {
     private Long sexId;
     private String name;
-    private String notes;
+    private String note;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,12 +33,12 @@ public class Sex {
 
     @Basic
     @Column(name = "notes")
-    public String getNotes() {
-        return notes;
+    public String getNote() {
+        return note;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setNote(String notes) {
+        this.note = notes;
     }
 
     @Override
@@ -48,12 +48,17 @@ public class Sex {
         Sex sex = (Sex) o;
         return Objects.equals(sexId, sex.sexId) &&
                 Objects.equals(name, sex.name) &&
-                Objects.equals(notes, sex.notes);
+                Objects.equals(note, sex.note);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(sexId, name, notes);
+        return Objects.hash(sexId, name, note);
+    }
+
+    public void fillData(String name, String note) {
+        this.setName(name);
+        this.setNote(note);
     }
 }

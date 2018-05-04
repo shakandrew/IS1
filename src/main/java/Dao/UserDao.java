@@ -12,11 +12,13 @@ public class UserDao extends AbstractDao<User> {
         Query query = session.createQuery("from User where login = :arg1 and password = :arg2");
         query.setParameter("arg1", login);
         query.setParameter("arg2", password);
-        if (query.list().isEmpty())
+        boolean temp = query.list().isEmpty();
+        commit();
+
+        if (temp)
             return false;
         else
             return true;
-
     }
     public static void main(String[] args) {
         UserDao userDao = new UserDao();

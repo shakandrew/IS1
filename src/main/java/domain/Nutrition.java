@@ -104,4 +104,14 @@ public class Nutrition {
 
         return Objects.hash(nutritionId, name, note, proteinsNum, fatsNum, carbohydratesNum, imageUrl);
     }
+
+    public void fillData(String name, String note, long proteinsNum,
+                         long fatsNum, long carbohydratesNum, String imageUrl) {
+        this.setName(name);
+        this.setNote(note);
+        this.setProteinsNum(proteinsNum);
+        this.setFatsNum(fatsNum);
+        this.setCarbohydratesNum(carbohydratesNum);
+        this.setImageUrl(imageUrl);
+    }
 }

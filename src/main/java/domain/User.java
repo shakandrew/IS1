@@ -88,4 +88,11 @@ public class User {
     public void setProfilesByProfileId(Profile profilesByProfileId) {
         this.profilesByProfileId = profilesByProfileId;
     }
+
+
+    public void fillData(String login, String password, Profile profile) {
+        this.setLogin(login);
+        this.setPassword(password);
+        this.setProfilesByProfileId(profile);
+    }
 }

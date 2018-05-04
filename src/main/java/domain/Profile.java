@@ -113,4 +113,15 @@ public class Profile {
     public void setLanguagesByLanguageId(Language languagesByLanguageId) {
         this.languagesByLanguageId = languagesByLanguageId;
     }
+
+    public void fillData(Sex sex, Unit unit, Language language, long weight,
+                         long height, String firstName, String secondName) {
+        this.setSexesBySexId(sex);
+        this.setUnitsByUnitId(unit);
+        this.setLanguagesByLanguageId(language);
+        this.setWeight(weight);
+        this.setHeight(height);
+        this.setFirstName(firstName);
+        this.setSecondName(secondName);
+    }
 }

@@ -24,7 +24,7 @@ public class SexDao extends AbstractDao<Sex> {
     public static void main(String[] args) {
         SexDao sexDao = new SexDao();
         Sex sex2 = sexDao.getByName("Male");
-        System.out.println(sex2.getName() + " " + sex2.getNotes());
+        System.out.println(sex2.getName() + " " + sex2.getNote());
 
     }
 

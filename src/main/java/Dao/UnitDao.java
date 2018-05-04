@@ -6,4 +6,5 @@ public class UnitDao extends AbstractDao<Unit> {
     public UnitDao() {
         super(Unit.class);
     }
+
 }

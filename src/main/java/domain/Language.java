@@ -56,4 +56,9 @@ public class Language {
 
         return Objects.hash(languageId, name, note);
     }
+
+    public void fillData(String name, String note) {
+        this.setName(name);
+        this.setNote(note);
+    }
 }

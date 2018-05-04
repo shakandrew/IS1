@@ -56,4 +56,10 @@ public class Exercise {
 
         return Objects.hash(exerciseId, name, note);
     }
+
+
+    public void fillData(String name, String note) {
+        this.setName(name);
+        this.setNote(note);
+    }
 }

@@ -56,4 +56,9 @@ public class Unit {
 
         return Objects.hash(unitId, name, note);
     }
+
+    public void fillData(String name, String note) {
+        this.setName(name);
+        this.setNote(note);
+    }
 }

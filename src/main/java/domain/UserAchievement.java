@@ -66,4 +66,10 @@ public class UserAchievement {
     public void setAchievementsByAchievementId(Achievement achievementsByAchievementId) {
         this.achievementsByAchievementId = achievementsByAchievementId;
     }
+
+    public void fillData(User user, Achievement achievement, boolean status) {
+        this.setUsersByUserId(user);
+        this.setAchievementsByAchievementId(achievement);
+        this.setStatus(status);
+    }
 }
