@@ -1,4 +1,5 @@
 import Dao.*;
+import GUI.ExampleForm;
 import Utils.HibernateUtils;
 import domain.*;
 import org.hibernate.Session;
@@ -10,8 +11,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class Main {
 
+
+public class Main {
     public static void main(final String[] args) throws Exception {
         LanguageDao languageDao = new LanguageDao();
         Language language = languageDao.getById(1);
@@ -24,20 +26,12 @@ public class Main {
 
         ProfilesDao profilesDao = new ProfilesDao();
         Profile profile = new Profile();
-        profile.setFirstName("juan");
-        profile.setSecondName("conzales");
-        profile.setLanguagesByLanguageId(language);
-        profile.setSexesBySexId(sex);
-        profile.setUnitsByUnitId(unit);
-        profile.setHeight((long)200);
-        profile.setWeight((long)60);
+        profile.fillData(sex, unit, language, 100, 100, "A", "A");
         profilesDao.insert(profile);
 
         UserDao userDao = new UserDao();
         User user = new User();
-        user.setLogin("juan228");
-        user.setPassword("123");
-        user.setProfilesByProfileId(profile);
+        user.fillData("a1", "a2", profile);
         userDao.insert(user);
     }
 }
