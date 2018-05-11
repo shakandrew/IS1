@@ -1,7 +1,12 @@
 package Dao;
 
 import domain.User;
+import domain.UserExercise;
 import org.hibernate.query.Query;
+import org.joda.time.DateTime;
+
+import java.sql.Timestamp;
+import java.util.*;
 
 public class UserDao extends AbstractDao<User> {
     public UserDao() {
@@ -20,13 +25,26 @@ public class UserDao extends AbstractDao<User> {
         else
             return true;
     }
+    public ArrayList<UserExercise> getUserExercisesByTime(User user, DateTime start, DateTime end) {
+        ArrayList<UserExercise> result;
+        beginTransaction();
+        Query query = session.createQuery("from UserExercise where usersByUserId = :user and unixtimeDate >= :start and unixtimeDate <= :end");
+        query.setParameter("user", user);
+        query.setParameter("start", start.getMillis() / 1000);
+        query.setParameter("end", end.getMillis() / 1000);
+        result = (ArrayList<UserExercise>)query.list();
+        commit();
+        return result;
+    }
     public static void main(String[] args) {
         UserDao userDao = new UserDao();
-        String login = "admin";
-        String password = "admin1";
-        if (userDao.checkPassword(login, password))
-            System.out.print("YES");
-        else
-            System.out.print("NO");
+        User user = userDao.getById(1);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        DateTime start = new DateTime(2018, 5,10,0,0);
+        DateTime end = new DateTime(2018, 5,12,0,0);
+        ArrayList<UserExercise> temp = userDao.getUserExercisesByTime(user, start, end);
+
+        System.out.println(start.getMillis() / 1000);
+        System.out.println(end.getMillis() / 1000);
     }
 }
